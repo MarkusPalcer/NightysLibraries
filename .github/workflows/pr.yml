@@ -9,7 +9,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.3
       - name: Restore packages
-        run: nuget restore
+        run: dotnet restore
       - name: Build
         run: dotnet build
       - name: Test
