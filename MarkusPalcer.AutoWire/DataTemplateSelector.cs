@@ -4,26 +4,30 @@ namespace MarkusPalcer.AutoWire;
 
 public class DataTemplateSelector : System.Windows.Controls.DataTemplateSelector
 {
-    private static Dictionary<Type, DataTemplate> _cache = new();
+    private static readonly Dictionary<Type, DataTemplate> Cache = new();
 
-    public override DataTemplate SelectTemplate(object item, DependencyObject container)
+    internal DataTemplateSelector()
     {
-        if (item is null) return null;
+    }
+
+    public override DataTemplate SelectTemplate(object? item, DependencyObject container)
+    {
+        if (item is null) return null!;
         
-        if (_cache.TryGetValue(item.GetType(), out var result))
+        if (Cache.TryGetValue(item.GetType(), out var result))
         {
             return result;
         }
 
         if (AutoWire.ServiceProvider is null)
         {
-            return base.SelectTemplate(item, container);
+            return base.SelectTemplate(item, container)!;
         }
 
         var viewType = AutoWire.ServiceProvider.GetService(typeof(IViewFor<>).MakeGenericType(item.GetType()))?.GetType();
         if (viewType is null)
         {
-            return base.SelectTemplate(item, container);
+            return base.SelectTemplate(item, container)!;
         }
 
         result = new DataTemplate
@@ -31,7 +35,7 @@ public class DataTemplateSelector : System.Windows.Controls.DataTemplateSelector
             VisualTree = new FrameworkElementFactory(viewType)
         };
 
-        _cache[item.GetType()] = result;
+        Cache[item.GetType()] = result;
 
         return result;
     }
