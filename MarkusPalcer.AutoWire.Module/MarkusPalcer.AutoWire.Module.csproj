@@ -1,26 +1,26 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net7.0-windows</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
-    
+
     <PropertyGroup>
-        <PackageId>MarkusPalcer.Modularity</PackageId>
-        <PackageVersion>0.0.2-alpha</PackageVersion>
+        <PackageId>MarkusPalcer.AutoWire.Module</PackageId>
+        <PackageVersion>0.0.1-alpha</PackageVersion>
         <Authors>Markus Palcer</Authors>
-        <Description>Loads modules and lets them register types into a service collection</Description>
+        <Description>Bridges AutoWire and Modularity</Description>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <Copyright>Copyright 2023 Markus Palcer</Copyright>
         <PackageProjectUrl>https://github.com/MarkusPalcer/NightysLibraries</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
-
+    
     <ItemGroup>
-      <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
-      <PackageReference Include="Scrutor" Version="4.2.2" />
+      <ProjectReference Include="..\MarkusPalcer.AutoWire\MarkusPalcer.AutoWire.csproj" />
+      <ProjectReference Include="..\MarkusPalcer.Modularity\MarkusPalcer.Modularity.csproj" />
     </ItemGroup>
 
+    
 </Project>
