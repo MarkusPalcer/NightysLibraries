@@ -6,8 +6,8 @@ namespace MarkusPalcer.Modularity;
 
 public class ServiceProviderBuilder
 {
-    private List<Assembly> _assemblies = new();
-    
+    private readonly List<Assembly> _assemblies = new() {typeof(ServiceProviderBuilder).Assembly};
+
     public ServiceProviderBuilder WithAssembly(Assembly assembly)
     {
         _assemblies.Add(assembly);
@@ -38,12 +38,12 @@ public class ServiceProviderBuilder
         }
 
         var result = serviceCollection.BuildServiceProvider();
-        
+
         foreach (var module in modules)
         {
             module.AfterServiceProviderCreation(result);
         }
-        
+
         return result;
     }
 }
