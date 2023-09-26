@@ -37,6 +37,13 @@ public class ServiceProviderBuilder
             module.RegisterTypes(serviceCollection, assemblies);
         }
 
-        return serviceCollection.BuildServiceProvider();
+        var result = serviceCollection.BuildServiceProvider();
+        
+        foreach (var module in modules)
+        {
+            module.AfterServiceProviderCreation(result);
+        }
+        
+        return result;
     }
 }
