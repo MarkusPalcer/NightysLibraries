@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using MarkusPalcer.Extensions;
 
 namespace MarkusPalcer.AutoWire;
 
@@ -13,7 +14,7 @@ public class DataTemplateSelector : System.Windows.Controls.DataTemplateSelector
     public override DataTemplate SelectTemplate(object? item, DependencyObject container)
     {
         if (item is null) return null!;
-        
+
         if (Cache.TryGetValue(item.GetType(), out var result))
         {
             return result;
@@ -24,7 +25,12 @@ public class DataTemplateSelector : System.Windows.Controls.DataTemplateSelector
             return base.SelectTemplate(item, container)!;
         }
 
-        var viewType = AutoWire.ServiceProvider.GetService(typeof(IViewFor<>).MakeGenericType(item.GetType()))?.GetType();
+        var viewType = item.GetType()
+            .TraverseBaseTypes()
+            .Concat(item.GetType().GetInterfaces())
+            .Select(type => AutoWire.ServiceProvider.GetService(typeof(IViewFor<>).MakeGenericType(type))?.GetType())
+            .FirstOrDefault(x => x is not null);
+
         if (viewType is null)
         {
             return base.SelectTemplate(item, container)!;
