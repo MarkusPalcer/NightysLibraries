@@ -5,11 +5,11 @@ namespace MarkusPalcer.Extensions.Test;
 [TestClass]
 public class TypeExtensionsTests
 {
-    private class Type1;
+    private class Type1 {}
 
-    private class Type2 : Type1;
+    private class Type2 : Type1 {}
 
-    private class Type3 : Type2;
+    private class Type3 : Type2 {}
 
     [TestMethod]
     public void TraverseBaseTypes_Traverses_in_correct_order()
