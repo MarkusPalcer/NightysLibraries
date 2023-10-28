@@ -9,7 +9,6 @@
 
     <PropertyGroup>
         <PackageId>MarkusPalcer.AutoWire</PackageId>
-        <PackageVersion>0.0.3-alpha</PackageVersion>
         <Authors>Markus Palcer</Authors>
         <Description>Automatically wires view-models to views</Description>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -17,11 +16,11 @@
         <PackageProjectUrl>https://github.com/MarkusPalcer/NightysLibraries</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
-    
+
     <ItemGroup>
         <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" />
     </ItemGroup>
-    
+
     <ItemGroup>
       <ProjectReference Include="..\MarkusPalcer.Extensions\MarkusPalcer.Extensions.csproj" />
     </ItemGroup>
