@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>MarkusPalcer.FileSystem.Testing</PackageId>
+        <Authors>Markus Palcer</Authors>
+        <Description>Test doubles for MarkusPalcer.FileSystem</Description>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <Copyright>Copyright 2023 Markus Palcer</Copyright>
+        <PackageProjectUrl>https://github.com/MarkusPalcer/NightysLibraries</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MarkusPalcer.FileSystem\MarkusPalcer.FileSystem.csproj" />
+    </ItemGroup>
+</Project>

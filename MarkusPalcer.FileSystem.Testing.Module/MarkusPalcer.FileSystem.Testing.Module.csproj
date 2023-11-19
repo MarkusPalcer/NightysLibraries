@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MarkusPalcer.FileSystem.Testing\MarkusPalcer.FileSystem.Testing.csproj" />
+      <ProjectReference Include="..\MarkusPalcer.FileSystem\MarkusPalcer.FileSystem.csproj" />
+      <ProjectReference Include="..\MarkusPalcer.Modularity\MarkusPalcer.Modularity.csproj" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <PackageId>MarkusPalcer.FileSystem.Testing.Module</PackageId>
+        <Authors>Markus Palcer</Authors>
+        <Description>Module that replaces MarkusPalcer.FileSystem implementation with test doubles</Description>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <Copyright>Copyright 2023 Markus Palcer</Copyright>
+        <PackageProjectUrl>https://github.com/MarkusPalcer/NightysLibraries</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    </PropertyGroup>
+</Project>
