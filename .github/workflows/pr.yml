@@ -5,18 +5,19 @@ on: pull_request
 jobs:
   build:
     runs-on: windows-latest
-    strategy:
-      matrix:
-        dotnet-version: [8.0.x]
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup .NET
+      - name: Setup .NET 7.0
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: ${{ matrix.dotnet-version }}
+          dotnet-version: 7.0.x
+
+      - name: Setup .NET 8.0
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 8.0.x
 
       - name: Restore packages
         run: dotnet restore
