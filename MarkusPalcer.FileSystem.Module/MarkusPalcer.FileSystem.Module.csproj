@@ -6,20 +6,19 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\MarkusPalcer.FileSystem\MarkusPalcer.FileSystem.csproj" />
+      <ProjectReference Include="..\MarkusPalcer.Modularity\MarkusPalcer.Modularity.csproj" />
+    </ItemGroup>
+
     <PropertyGroup>
-        <PackageId>MarkusPalcer.Modularity</PackageId>
+        <PackageId>MarkusPalcer.FileSystem.Module</PackageId>
         <Authors>Markus Palcer</Authors>
-        <Description>Loads modules and lets them register types into a service collection</Description>
+        <Description>Modularity extension for file MarkusPalcer.FileSystem</Description>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <Copyright>Copyright 2023 Markus Palcer</Copyright>
         <PackageProjectUrl>https://github.com/MarkusPalcer/NightysLibraries</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
     </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="JetBrains.Annotations" Version="2023.2.0"/>
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0"/>
-        <PackageReference Include="Scrutor" Version="4.2.2"/>
-    </ItemGroup>
-
 </Project>

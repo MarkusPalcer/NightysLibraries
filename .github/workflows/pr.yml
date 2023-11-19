@@ -8,9 +8,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup .NET 7.0
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 7.0.x
+
+      - name: Setup .NET 8.0
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 8.0.x
+
       - name: Restore packages
         run: dotnet restore
+
       - name: Build
         run: dotnet build
+
       - name: Test
         run: dotnet test --no-build --verbosity normal

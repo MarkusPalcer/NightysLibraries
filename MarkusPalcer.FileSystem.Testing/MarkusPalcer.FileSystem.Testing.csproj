@@ -1,25 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net7.0-windows;net8.0-windows</TargetFrameworks>
+        <TargetFrameworks>net7.0;net8.0</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <PropertyGroup>
-        <PackageId>MarkusPalcer.AutoWire.Module</PackageId>
+        <PackageId>MarkusPalcer.FileSystem.Testing</PackageId>
         <Authors>Markus Palcer</Authors>
-        <Description>Bridges AutoWire and Modularity</Description>
+        <Description>Test doubles for MarkusPalcer.FileSystem</Description>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <Copyright>Copyright 2023 Markus Palcer</Copyright>
         <PackageProjectUrl>https://github.com/MarkusPalcer/NightysLibraries</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\MarkusPalcer.AutoWire\MarkusPalcer.AutoWire.csproj" />
-      <ProjectReference Include="..\MarkusPalcer.Modularity\MarkusPalcer.Modularity.csproj" />
+      <ProjectReference Include="..\MarkusPalcer.FileSystem\MarkusPalcer.FileSystem.csproj" />
     </ItemGroup>
-
-
 </Project>
