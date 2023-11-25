@@ -54,4 +54,20 @@ public class DirectoryTests
         sut.Files.Select(x => x.FullPath).Should()
            .BeEquivalentTo(Path.Combine(Common.ExistingDirectory, Common.ExistingFile));
     }
+
+    [TestMethod]
+    public void EnumerateFilesOfNonExistingDirectory()
+    {
+        var sut = (MarkusPalcer.FileSystem.IDirectory)Common.CreateSampleData().GetDirectory(Common.NonExistingDirectory);
+
+        sut.Invoking(x => x.Files).Should().Throw<DirectoryNotFoundException>();
+    }
+
+    [TestMethod]
+    public void EnumerateDirectoriesOfNonExistingDirectory()
+    {
+        var sut = (MarkusPalcer.FileSystem.IDirectory)Common.CreateSampleData().GetDirectory(Common.NonExistingDirectory);
+
+        sut.Invoking(x => x.Directories).Should().Throw<DirectoryNotFoundException>();
+    }
 }

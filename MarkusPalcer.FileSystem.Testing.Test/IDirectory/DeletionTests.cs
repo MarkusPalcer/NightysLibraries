@@ -50,9 +50,6 @@ public class DeletionTests
         sut.Invoking(x => x.Delete(true)).Should().NotThrow();
 
         sut.Exists.Should().BeFalse();
-
-        sut.Directories.Should().BeEmpty();
-        sut.Files.Should().BeEmpty();
     }
 
     [TestMethod]

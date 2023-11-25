@@ -22,9 +22,24 @@ public class Directory : IDirectory
 
     IDirectory? IDirectory.Parent => _parent;
 
-    IEnumerable<IDirectory> IDirectory.Directories => _directories.Values.Where(x => x.Exists);
+    IEnumerable<IDirectory> IDirectory.Directories
+    {
+        get
+        {
+            if (!Exists) ThrowForFirstExistingParent("enumerate the directories in");
+            return _directories.Values.Where(x => x.Exists);
+        }
+    }
 
-    IEnumerable<IFile> IDirectory.Files => Files.Where(x => x.Exists);
+    IEnumerable<IFile> IDirectory.Files
+    {
+        get
+        {
+            if (!Exists) ThrowForFirstExistingParent("enumerate the files in");
+
+            return Files.Where(x => x.Exists);
+        }
+    }
 
     void IDirectory.Create()
     {
@@ -32,10 +47,7 @@ public class Directory : IDirectory
 
         DenyOperationOnFileSystemRoot("create");
 
-        if (!_parent!.Exists)
-        {
-            ThrowForFirstExistingParent("create");
-        }
+        if (!_parent!.Exists) ThrowForFirstExistingParent("create");
 
         Exists = true;
     }
@@ -43,7 +55,7 @@ public class Directory : IDirectory
     private void ThrowForFirstExistingParent(string operation)
     {
         // Let's create a meaningful message
-        var firstNonExistingParent = _parent!;
+        var firstNonExistingParent = this;
 
         while (true)
         {
