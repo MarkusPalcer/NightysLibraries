@@ -10,6 +10,9 @@ public class FileSystem : IFileSystem
 
     public Directory GetDirectory(string path)
     {
+        if (string.IsNullOrWhiteSpace(path))
+            throw new ArgumentException("The path cannot be null or an empty string");
+
         var directoryStructure = GetDirectoryStructure(new DirectoryInfo(Path.GetFullPath(path)));
 
         // The root is e.g. "C:\"
@@ -82,6 +85,9 @@ public class FileSystem : IFileSystem
 
     public File GetFile(string path)
     {
+        if (string.IsNullOrWhiteSpace(path))
+            throw new ArgumentException("The path cannot be null or an empty string");
+
         var fileInfo = new FileInfo(Path.GetFullPath(path));
         var parent = GetDirectory(fileInfo.Directory!.FullName);
 

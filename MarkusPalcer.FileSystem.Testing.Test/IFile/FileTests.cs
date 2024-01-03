@@ -103,4 +103,12 @@ public class FileTests
         file.Delete();
         file.Exists.Should().BeFalse();
     }
+
+    [TestMethod]
+    public void RequestingFileWithEmptyFileName()
+    {
+        var fileSystem = (IFileSystem)Common.CreateSampleData();
+        var directory = fileSystem.GetDirectory(Environment.CurrentDirectory);
+        directory.Invoking(x => x.GetFile(string.Empty)).Should().Throw<ArgumentException>();
+    }
 }

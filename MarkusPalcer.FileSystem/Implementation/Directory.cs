@@ -20,10 +20,21 @@ public class Directory : IDirectory
     public IEnumerable<IFile> Files => _directoryInfo.EnumerateFiles().Select(x => new File(x));
     public void Create() => _directoryInfo.Create();
 
-    public IFile GetFile(string path) => new File(Path.GetFullPath(Path.Combine(_directoryInfo.FullName, path)));
+    public IFile GetFile(string path)
+    {
+        if (string.IsNullOrWhiteSpace(path))
+            throw new ArgumentException("The path cannot be null or an empty string");
 
-    public IDirectory GetDirectory(string path) =>
-        new Directory(Path.GetFullPath(Path.Combine(_directoryInfo.FullName, path)));
+        return new File(Path.GetFullPath(Path.Combine(_directoryInfo.FullName, path)));
+    }
+
+    public IDirectory GetDirectory(string path)
+    {
+        if (string.IsNullOrWhiteSpace(path))
+            throw new ArgumentException("The path cannot be null or an empty string");
+
+        return new Directory(Path.GetFullPath(Path.Combine(_directoryInfo.FullName, path)));
+    }
 
     public void Delete(bool recursive = false) => _directoryInfo.Delete(recursive);
 

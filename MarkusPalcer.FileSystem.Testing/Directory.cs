@@ -141,6 +141,9 @@ public class Directory : IDirectory
     /// </summary>
     public Directory GetDirectory(string path)
     {
+        if (string.IsNullOrWhiteSpace(path))
+            throw new ArgumentException("The path cannot be null or an empty string");
+
         if (path.Contains(Path.DirectorySeparatorChar))
             return _fileSystem.GetDirectory(Path.GetFullPath(Path.Combine(FullPath, path)));
 
@@ -157,6 +160,9 @@ public class Directory : IDirectory
     /// </summary>
     public File GetFile(string path)
     {
+        if (string.IsNullOrWhiteSpace(path))
+            throw new ArgumentException("The path cannot be null or an empty string");
+
         if (path.Contains(Path.DirectorySeparatorChar))
             return _fileSystem.GetFile(Path.GetFullPath(Path.Combine(FullPath, path)));
 
