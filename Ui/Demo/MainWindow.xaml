@@ -3,14 +3,112 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="clr-namespace:Ui;assembly=Ui"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <ScrollViewer VerticalContentAlignment="Top">
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-            <StackPanel Orientation="Horizontal">
-                <Button>Normal</Button>
-                <Button>Highlighted</Button>
-            </StackPanel>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+            <TabControl Margin="5">
+                <TabItem Header="Buttons">
+                    <StackPanel Orientation="Horizontal">
+                        <Button>Normal</Button>
+                        <Button IsEnabled="False">Disabled</Button>
+                        <Button IsDefault="True">Default</Button>
+                        <Button IsDefault="True" IsEnabled="False">Disabled Default</Button>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Button Group">
+                    <StackPanel Orientation="Horizontal">
+                        <Button ui:AttachedProperties.Grouping="First" Margin="1 2">Normal</Button>
+                        <Button ui:AttachedProperties.Grouping="Middle" Margin="1 2" IsEnabled="False">Disabled</Button>
+                        <Button ui:AttachedProperties.Grouping="Middle" Margin="1 2" IsDefault="True">Default</Button>
+                        <Button ui:AttachedProperties.Grouping="Last" Margin="1 2" IsDefault="True" IsEnabled="False">Disabled Default</Button>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Checkbox">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="False">Unchecked</CheckBox>
+                            <CheckBox IsChecked="True">Checked</CheckBox>
+                            <CheckBox IsThreeState="True" IsChecked="{x:Null}">Intermediate</CheckBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="False" IsEnabled="False">Unchecked</CheckBox>
+                            <CheckBox IsChecked="True" IsEnabled="False">Checked</CheckBox>
+                            <CheckBox IsThreeState="True" IsChecked="{x:Null}" IsEnabled="False">Intermediate</CheckBox>
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="GroupBox">
+                    <StackPanel Orientation="Vertical">
+                        <GroupBox Header="Enabled">
+                            <TextBlock>Some content for sizing</TextBlock>
+                        </GroupBox>
+                        <GroupBox Header="Disabled" IsEnabled="False">
+                            <TextBlock>Some content for sizing</TextBlock>
+                        </GroupBox>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="ComboBox">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox>
+                                <ComboBoxItem IsSelected="True">Item 1</ComboBoxItem>
+                                <ComboBoxItem>Item 2</ComboBoxItem>
+                                <ComboBoxItem>Item 3</ComboBoxItem>
+                                <ComboBoxItem IsEnabled="False">Disabled Item</ComboBoxItem>
+                            </ComboBox>
+
+                            <ComboBox IsEnabled="False">
+                                <ComboBoxItem IsSelected="True">Item 1</ComboBoxItem>
+                            </ComboBox>
+
+                            <ComboBox IsEditable="True">
+                                <ComboBoxItem IsSelected="True">Item 1</ComboBoxItem>
+                                <ComboBoxItem>Item 2</ComboBoxItem>
+                                <ComboBoxItem>Item 3</ComboBoxItem>
+                                <ComboBoxItem IsEnabled="False">Disabled Item</ComboBoxItem>
+                            </ComboBox>
+
+                            <ComboBox IsEnabled="False" IsEditable="True">
+                                <ComboBoxItem IsSelected="True">Item 1</ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox ui:AttachedProperties.Grouping="First" Margin="1 2">
+                                <ComboBoxItem>First</ComboBoxItem>
+                            </ComboBox>
+                            <ComboBox ui:AttachedProperties.Grouping="Middle" Margin="1 2">
+                                <ComboBoxItem>Middle</ComboBoxItem>
+                            </ComboBox>
+                            <ComboBox ui:AttachedProperties.Grouping="Last" Margin="1 2">
+                                <ComboBoxItem>Last</ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="TextBox">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox>Regular</TextBox>
+                            <TextBox IsEnabled="False">Disabled</TextBox>
+                            <TextBox IsReadOnly="True">ReadOnly</TextBox>
+                            <TextBox IsReadOnly="True" IsEnabled="True">ReadOnly and Disabled</TextBox>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox ui:AttachedProperties.Grouping="First" Margin="1 2">First</TextBox>
+                            <TextBox ui:AttachedProperties.Grouping="Middle" Margin="1 2">Middle</TextBox>
+                            <TextBox ui:AttachedProperties.Grouping="Last" Margin="1 2">Last</TextBox>
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+
+            <TabControl>
+                <TabItem Header="Disabled Open" IsEnabled="False" />
+                <TabItem Header="Disabled Closed" IsEnabled="False" />
+            </TabControl>
         </StackPanel>
     </ScrollViewer>
 </Window>

@@ -2,5 +2,21 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Templates/Button.xaml" />
+        <ResourceDictionary Source="Templates/Checkbox.xaml" />
+        <ResourceDictionary Source="Templates/TabControl.xaml" />
+        <ResourceDictionary Source="Templates/GroupBox.xaml" />
+        <ResourceDictionary Source="Templates/ComboBox.xaml" />
+        <ResourceDictionary Source="Templates/TextBox.xaml" />
     </ResourceDictionary.MergedDictionaries>
+    
+    <SolidColorBrush Color="Gray" x:Key="DisabledForeground"/>
+    <SolidColorBrush Color="LightGray" x:Key="DisabledBackground"/>
+    
+    <SolidColorBrush Color="Black" x:Key="EnabledForeground" />
+    <SolidColorBrush Color="White" x:Key="EnabledBackground" />
+    
+    <SolidColorBrush Color="White" Opacity="0.25"  x:Key="HighlightOverlayColor" />
+    <SolidColorBrush Color="White" Opacity="0.25"  x:Key="FocusOverlayBrush" />
+    <SolidColorBrush Color="DarkGray" x:Key="SelectionIndicatorBrush" />
+    <SolidColorBrush Color="LightGray" x:Key="MenuHighlightIndicatorBrush" />
 </ResourceDictionary>

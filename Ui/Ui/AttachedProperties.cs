@@ -1,23 +1,19 @@
 ﻿using System.Windows;
-using System.Windows.Media;
 
 namespace Ui;
 
 public class AttachedProperties
 {
-    public static readonly DependencyProperty InvertedForegroundProperty = DependencyProperty.RegisterAttached(
-        "InvertedForeground",
-        typeof(Brush),
-        typeof(AttachedProperties),
-        new FrameworkPropertyMetadata(Brushes.White, FrameworkPropertyMetadataOptions.Inherits));
+    public static readonly DependencyProperty GroupingProperty = DependencyProperty.RegisterAttached(
+        "Grouping", typeof(Grouping), typeof(AttachedProperties), new FrameworkPropertyMetadata(Grouping.Single, FrameworkPropertyMetadataOptions.Inherits));
 
-    public static void SetInvertedForeground(DependencyObject element, Brush value)
+    public static void SetGrouping(DependencyObject element, Grouping value)
     {
-        element.SetValue(InvertedForegroundProperty, value);
+        element.SetValue(GroupingProperty, value);
     }
 
-    public static Brush GetInvertedForeground(DependencyObject element)
+    public static Grouping GetGrouping(DependencyObject element)
     {
-        return (Brush)element.GetValue(InvertedForegroundProperty);
+        return (Grouping) element.GetValue(GroupingProperty);
     }
 }

@@ -7,4 +7,15 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <PackageId>MarkusPalcer.Ui</PackageId>
+        <Authors>Markus Palcer</Authors>
+        <Description>Ui snippets and styles for my applications</Description>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <Copyright>Copyright 2023 Markus Palcer</Copyright>
+        <PackageProjectUrl>https://github.com/MarkusPalcer/NightysLibraries</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    </PropertyGroup>
+
 </Project>
