@@ -22,7 +22,7 @@
                     <MultiBinding>
                         <MultiBinding.Bindings>
                             <Binding Source="{StaticResource CornerRadius}"/>
-                            <Binding Path="(ui:Grouping.Position)" RelativeSource="{RelativeSource TemplatedParent}" />                                    
+                            <Binding Path="(ui:Grouping.Position)" RelativeSource="{RelativeSource FindAncestor, AncestorType=ComboBox}" />                                    
                         </MultiBinding.Bindings>
                         <MultiBinding.Converter>
                             <converters:GroupedCornerRadiusConverter />
