@@ -22,7 +22,7 @@
                     <MultiBinding>
                         <MultiBinding.Bindings>
                             <Binding Source="{StaticResource CornerRadius}"/>
-                            <Binding Path="(ui:AttachedProperties.Grouping)" RelativeSource="{RelativeSource TemplatedParent}" />                                    
+                            <Binding Path="(ui:Grouping.Position)" RelativeSource="{RelativeSource TemplatedParent}" />                                    
                         </MultiBinding.Bindings>
                         <MultiBinding.Converter>
                             <converters:GroupedCornerRadiusConverter />
@@ -33,13 +33,13 @@
             <Border Grid.Column="0"
                     x:Name="UnknownBorder"
                     Background="{DynamicResource EnabledBackground}"
-                    ui:AttachedProperties.Grouping="First"
+                    ui:Grouping.Position="First"
                     Margin="1">
                 <Border.CornerRadius>
                     <MultiBinding>
                         <MultiBinding.Bindings>
                             <Binding ElementName="Border" Path="CornerRadius" />
-                            <Binding ElementName="UnknownBorder" Path="(ui:AttachedProperties.Grouping)" />                                    
+                            <Binding ElementName="UnknownBorder" Path="(ui:Grouping.Position)" />                                    
                         </MultiBinding.Bindings>
                         <MultiBinding.Converter>
                             <converters:GroupedCornerRadiusConverter />

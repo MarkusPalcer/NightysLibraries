@@ -39,7 +39,7 @@
                             <MultiBinding>
                                 <MultiBinding.Bindings>
                                     <Binding Path="(Border.CornerRadius)" RelativeSource="{RelativeSource TemplatedParent}"/>
-                                    <Binding Path="(ui:AttachedProperties.Grouping)" RelativeSource="{RelativeSource TemplatedParent}" />                                    
+                                    <Binding Path="(ui:Grouping.Position)" RelativeSource="{RelativeSource TemplatedParent}" />                                    
                                 </MultiBinding.Bindings>
                                 <MultiBinding.Converter>
                                     <converters:GroupedCornerRadiusConverter />
