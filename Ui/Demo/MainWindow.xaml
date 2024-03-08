@@ -103,6 +103,38 @@
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
+                <TabItem Header="ListBox">
+                    <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <ListBox>
+                            <ListBoxItem>Item 1</ListBoxItem>
+                            <ListBoxItem IsSelected="True">Item 2</ListBoxItem>
+                            <ListBoxItem>Item 3</ListBoxItem>
+                            <ListBoxItem IsEnabled="False">Disabled Item</ListBoxItem>
+                        </ListBox>
+                        <ListBox IsEnabled="False">
+                            <ListBoxItem>Item 1</ListBoxItem>
+                            <ListBoxItem IsSelected="True">Item 2</ListBoxItem>
+                            <ListBoxItem>Item 3</ListBoxItem>
+                            <ListBoxItem IsEnabled="False">Disabled Item</ListBoxItem>
+                        </ListBox>
+                    </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <ListBox ui:AttachedProperties.Grouping="First" Margin="1 2">
+                                <ListBoxItem>Item 1</ListBoxItem>
+                                <ListBoxItem>Item 2</ListBoxItem>
+                            </ListBox>
+                            <ListBox ui:AttachedProperties.Grouping="Middle" Margin="1 2">
+                                <ListBoxItem>Item 1</ListBoxItem>
+                                <ListBoxItem>Item 2</ListBoxItem>
+                            </ListBox>
+                            <ListBox ui:AttachedProperties.Grouping="Last" Margin="1 2">
+                                <ListBoxItem>Item 1</ListBoxItem>
+                                <ListBoxItem>Item 2</ListBoxItem>
+                            </ListBox>
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
             </TabControl>
 
             <TabControl>

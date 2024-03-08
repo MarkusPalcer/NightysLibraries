@@ -7,6 +7,7 @@
         <ResourceDictionary Source="Templates/GroupBox.xaml" />
         <ResourceDictionary Source="Templates/ComboBox.xaml" />
         <ResourceDictionary Source="Templates/TextBox.xaml" />
+        <ResourceDictionary Source="Templates/ListBox.xaml" />
     </ResourceDictionary.MergedDictionaries>
     
     <SolidColorBrush Color="Gray" x:Key="DisabledForeground"/>
@@ -17,6 +18,5 @@
     
     <SolidColorBrush Color="White" Opacity="0.25"  x:Key="HighlightOverlayColor" />
     <SolidColorBrush Color="White" Opacity="0.25"  x:Key="FocusOverlayBrush" />
-    <SolidColorBrush Color="DarkGray" x:Key="SelectionIndicatorBrush" />
     <SolidColorBrush Color="LightGray" x:Key="MenuHighlightIndicatorBrush" />
 </ResourceDictionary>
