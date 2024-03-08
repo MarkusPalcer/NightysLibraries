@@ -22,7 +22,7 @@
                     <MultiBinding>
                         <MultiBinding.Bindings>
                             <Binding Source="{StaticResource CornerRadius}"/>
-                            <Binding Path="(ui:AttachedProperties.Grouping)" RelativeSource="{RelativeSource TemplatedParent}" />                                    
+                            <Binding Path="(ui:Grouping.Position)" RelativeSource="{RelativeSource TemplatedParent}" />                                    
                         </MultiBinding.Bindings>
                         <MultiBinding.Converter>
                             <converters:GroupedCornerRadiusConverter />
@@ -33,13 +33,13 @@
             <Border Grid.Column="0"
                     x:Name="UnknownBorder"
                     Background="{DynamicResource EnabledBackground}"
-                    ui:AttachedProperties.Grouping="First"
+                    ui:Grouping.Position="First"
                     Margin="1">
                 <Border.CornerRadius>
                     <MultiBinding>
                         <MultiBinding.Bindings>
                             <Binding ElementName="Border" Path="CornerRadius" />
-                            <Binding ElementName="UnknownBorder" Path="(ui:AttachedProperties.Grouping)" />                                    
+                            <Binding ElementName="UnknownBorder" Path="(ui:Grouping.Position)" />                                    
                         </MultiBinding.Bindings>
                         <MultiBinding.Converter>
                             <converters:GroupedCornerRadiusConverter />
@@ -183,7 +183,7 @@
                                         BorderBrush="{DynamicResource EnabledForeground}"
                                         Background="{DynamicResource EnabledBackground}"
                                         BorderThickness="1" />
-                                <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                <ScrollViewer Margin="1 6" SnapsToDevicePixels="True">
                                     <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
                                 </ScrollViewer>
                             </Grid>
@@ -223,42 +223,38 @@
                             Padding="2"
                             SnapsToDevicePixels="true"
                             Background="Transparent">
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="SelectionStates">
-                                <VisualState x:Name="Unselected" />
-                                <VisualState x:Name="Selected">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border"
-                                                                       Storyboard.TargetProperty="(Panel.Background)">
-                                            <DiscreteObjectKeyFrame KeyTime="0"
-                                                                    Value="{DynamicResource SelectionIndicatorBrush}" />
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="SelectedUnfocused">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border"
-                                                                       Storyboard.TargetProperty="(Panel.Background)">
-                                            <DiscreteObjectKeyFrame KeyTime="0"
-                                                                    Value="{DynamicResource SelectionIndicatorBrush}" />
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
                         <ContentPresenter x:Name="Content" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsSelected" Value="False" />
-                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsEnabled" Value="True" />
+                                <Condition Property="IsSelected" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuHighlightIndicatorBrush}" />
+                            
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource EnabledForeground}" />
+                            <Setter TargetName="Content" Property="TextBlock.Foreground" Value="{DynamicResource EnabledBackground}" />
                         </MultiTrigger>
-                        <Trigger Property="IsEnabled" Value="False">
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False" />
+                                <Condition Property="IsSelected" Value="True" />
+                            </MultiTrigger.Conditions>
+                            
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource DisabledForeground}" />
+                            <Setter TargetName="Content" Property="TextBlock.Foreground" Value="{DynamicResource DisabledBackground}" />
+                        </MultiTrigger>
+                        
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False" />
+                                <Condition Property="IsSelected" Value="False" />
+                            </MultiTrigger.Conditions>
+                        
                             <Setter TargetName="Content" Property="TextBlock.Foreground" Value="{DynamicResource DisabledForeground}" />
-                        </Trigger>
+                        </MultiTrigger>
+
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

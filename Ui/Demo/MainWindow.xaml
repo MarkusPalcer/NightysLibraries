@@ -10,19 +10,19 @@
         <StackPanel Orientation="Vertical" VerticalAlignment="Top">
             <TabControl Margin="5">
                 <TabItem Header="Buttons">
-                    <StackPanel Orientation="Horizontal">
-                        <Button>Normal</Button>
-                        <Button IsEnabled="False">Disabled</Button>
-                        <Button IsDefault="True">Default</Button>
-                        <Button IsDefault="True" IsEnabled="False">Disabled Default</Button>
-                    </StackPanel>
-                </TabItem>
-                <TabItem Header="Button Group">
-                    <StackPanel Orientation="Horizontal">
-                        <Button ui:AttachedProperties.Grouping="First" Margin="1 2">Normal</Button>
-                        <Button ui:AttachedProperties.Grouping="Middle" Margin="1 2" IsEnabled="False">Disabled</Button>
-                        <Button ui:AttachedProperties.Grouping="Middle" Margin="1 2" IsDefault="True">Default</Button>
-                        <Button ui:AttachedProperties.Grouping="Last" Margin="1 2" IsDefault="True" IsEnabled="False">Disabled Default</Button>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <Button>Normal</Button>
+                            <Button IsEnabled="False">Disabled</Button>
+                            <Button IsDefault="True">Default</Button>
+                            <Button IsDefault="True" IsEnabled="False">Disabled Default</Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button ui:Grouping.Position="First" Margin="1 2">Normal</Button>
+                            <Button ui:Grouping.Position="Middle" Margin="1 2" IsEnabled="False">Disabled</Button>
+                            <Button ui:Grouping.Position="Middle" Margin="1 2" IsDefault="True">Default</Button>
+                            <Button ui:Grouping.Position="Last" Margin="1 2" IsDefault="True" IsEnabled="False">Disabled Default</Button>
+                        </StackPanel>
                     </StackPanel>
                 </TabItem>
                 <TabItem Header="Checkbox">
@@ -75,13 +75,13 @@
                             </ComboBox>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <ComboBox ui:AttachedProperties.Grouping="First" Margin="1 2">
+                            <ComboBox ui:Grouping.Position="First" Margin="1 2">
                                 <ComboBoxItem>First</ComboBoxItem>
                             </ComboBox>
-                            <ComboBox ui:AttachedProperties.Grouping="Middle" Margin="1 2">
+                            <ComboBox ui:Grouping.Position="Middle" Margin="1 2">
                                 <ComboBoxItem>Middle</ComboBoxItem>
                             </ComboBox>
-                            <ComboBox ui:AttachedProperties.Grouping="Last" Margin="1 2">
+                            <ComboBox ui:Grouping.Position="Last" Margin="1 2">
                                 <ComboBoxItem>Last</ComboBoxItem>
                             </ComboBox>
                         </StackPanel>
@@ -95,11 +95,43 @@
                             <TextBox IsReadOnly="True">ReadOnly</TextBox>
                             <TextBox IsReadOnly="True" IsEnabled="True">ReadOnly and Disabled</TextBox>
                         </StackPanel>
-                        
+
                         <StackPanel Orientation="Horizontal">
-                            <TextBox ui:AttachedProperties.Grouping="First" Margin="1 2">First</TextBox>
-                            <TextBox ui:AttachedProperties.Grouping="Middle" Margin="1 2">Middle</TextBox>
-                            <TextBox ui:AttachedProperties.Grouping="Last" Margin="1 2">Last</TextBox>
+                            <TextBox ui:Grouping.Position="First" Margin="1 2">First</TextBox>
+                            <TextBox ui:Grouping.Position="Middle" Margin="1 2">Middle</TextBox>
+                            <TextBox ui:Grouping.Position="Last" Margin="1 2">Last</TextBox>
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="ListBox">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <ListBox>
+                                <ListBoxItem>Item 1</ListBoxItem>
+                                <ListBoxItem IsSelected="True">Item 2</ListBoxItem>
+                                <ListBoxItem>Item 3</ListBoxItem>
+                                <ListBoxItem IsEnabled="False">Disabled Item</ListBoxItem>
+                            </ListBox>
+                            <ListBox IsEnabled="False">
+                                <ListBoxItem>Item 1</ListBoxItem>
+                                <ListBoxItem IsSelected="True">Item 2</ListBoxItem>
+                                <ListBoxItem>Item 3</ListBoxItem>
+                                <ListBoxItem IsEnabled="False">Disabled Item</ListBoxItem>
+                            </ListBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <ListBox ui:Grouping.Position="First" Margin="1 2">
+                                <ListBoxItem>Item 1</ListBoxItem>
+                                <ListBoxItem>Item 2</ListBoxItem>
+                            </ListBox>
+                            <ListBox ui:Grouping.Position="Middle" Margin="1 2">
+                                <ListBoxItem>Item 1</ListBoxItem>
+                                <ListBoxItem>Item 2</ListBoxItem>
+                            </ListBox>
+                            <ListBox ui:Grouping.Position="Last" Margin="1 2">
+                                <ListBoxItem>Item 1</ListBoxItem>
+                                <ListBoxItem>Item 2</ListBoxItem>
+                            </ListBox>
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
