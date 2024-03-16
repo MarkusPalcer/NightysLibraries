@@ -9,7 +9,7 @@
 
     <PropertyGroup>
         <PackageId>MarkusPalcer.Ui</PackageId>
-        <PackageVersion>1.0.0-alpha8</PackageVersion>
+        <PackageVersion>1.0.0-alpha9</PackageVersion>
         <Authors>Markus Palcer</Authors>
         <Description>Ui snippets and styles for my applications</Description>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>

@@ -14,8 +14,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ListBox">
                     <Border Name="Border"
-                            Background="{DynamicResource EnabledBackground}"
-                            BorderBrush="{DynamicResource EnabledForeground}"
+                            Background="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Background}}"
+                            BorderBrush="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Foreground}}"
                             BorderThickness="1">
                         <Border.Resources>
                             <CornerRadius x:Key="CornerRadius">2</CornerRadius>
@@ -37,8 +37,8 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource DisabledBackground}" />
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource DisabledForeground}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Background}}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Foreground}}" />
                         </Trigger>
                         <Trigger Property="IsGrouping" Value="true">
                             <Setter Property="ScrollViewer.CanContentScroll" Value="false" />
@@ -70,8 +70,8 @@
                                 <Condition Property="IsSelected" Value="True" />
                             </MultiTrigger.Conditions>
                             
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource EnabledForeground}" />
-                            <Setter TargetName="ContentHost" Property="TextBlock.Foreground" Value="{DynamicResource EnabledBackground}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Foreground}}" />
+                            <Setter TargetName="ContentHost" Property="TextBlock.Foreground" Value="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Background}}" />
                         </MultiTrigger>
                         
                         <MultiTrigger>
@@ -80,7 +80,7 @@
                                 <Condition Property="IsSelected" Value="False" />
                             </MultiTrigger.Conditions>
                         
-                            <Setter TargetName="ContentHost" Property="TextBlock.Foreground" Value="{DynamicResource DisabledForeground}" />
+                            <Setter TargetName="ContentHost" Property="TextBlock.Foreground" Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Foreground}}" />
                         </MultiTrigger>
                     
                         <MultiTrigger>
@@ -89,8 +89,8 @@
                                 <Condition Property="IsSelected" Value="True" />
                             </MultiTrigger.Conditions>
                             
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource DisabledForeground}" />
-                            <Setter TargetName="ContentHost" Property="TextBlock.Foreground" Value="{DynamicResource DisabledBackground}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Foreground}}" />
+                            <Setter TargetName="ContentHost" Property="TextBlock.Foreground" Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Background}}" />
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

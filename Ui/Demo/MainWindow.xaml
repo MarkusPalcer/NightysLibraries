@@ -6,141 +6,181 @@
         xmlns:ui="clr-namespace:Ui;assembly=Ui"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <ScrollViewer VerticalContentAlignment="Top">
-        <StackPanel Orientation="Vertical" VerticalAlignment="Top">
-            <TabControl Margin="5">
-                <TabItem Header="Buttons">
-                    <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal">
-                            <Button>Normal</Button>
-                            <Button IsEnabled="False">Disabled</Button>
-                            <Button IsDefault="True">Default</Button>
-                            <Button IsDefault="True" IsEnabled="False">Disabled Default</Button>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Regular">
+                <MenuItem Header="A" InputGestureText="Gesture A">
+                    <MenuItem Header="A" InputGestureText="Gesture A" />
+                    <MenuItem Header="B" InputGestureText="Gesture B" />
+                    <MenuItem Header="C" InputGestureText="Gesture C" />
+                    <MenuItem IsEnabled="False" Header="Disabled" InputGestureText="Gesture D" />
+                </MenuItem>
+                <MenuItem Header="B" InputGestureText="Gesture B" />
+                <MenuItem Header="C" InputGestureText="Gesture C" />
+                <MenuItem IsEnabled="False" Header="Disabled" InputGestureText="Gesture D">
+                    <MenuItem Header="A" InputGestureText="Gesture A">
+                        Content
+                    </MenuItem>
+                    <MenuItem Header="B" InputGestureText="Gesture B">
+                        Content
+                    </MenuItem>
+                    <MenuItem Header="C" InputGestureText="Gesture C">
+                        Content
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            
+            <MenuItem Header="Checkable">
+                <MenuItem IsCheckable="True" Header="A" InputGestureText="Gesture A">
+                    <MenuItem Header="A" IsCheckable="True" InputGestureText="Gesture A" />
+                    <MenuItem Header="B" IsCheckable="True" InputGestureText="Gesture B" />
+                    <MenuItem Header="C" IsCheckable="True" InputGestureText="Gesture C" />
+                </MenuItem>
+                
+                <MenuItem IsCheckable="True" IsChecked="True" Header="B" InputGestureText="Gesture B" />
+                <MenuItem IsCheckable="True" InputGestureText="Gesture C" Header="C" />
+                <MenuItem IsEnabled="False" IsCheckable="True" Header="Disabled" InputGestureText="Gesture D" />
+                <MenuItem IsEnabled="False" IsCheckable="True" IsChecked="True" Header="Disabled and checked"
+                          InputGestureText="Gesture E" />
+            </MenuItem>
+            <MenuItem Header="Disabled" IsEnabled="False" />
+        </Menu>
+        <ScrollViewer VerticalContentAlignment="Top">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                <TabControl Margin="5">
+                    <TabItem Header="Buttons">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <Button>Normal</Button>
+                                <Button IsEnabled="False">Disabled</Button>
+                                <Button IsDefault="True">Default</Button>
+                                <Button IsDefault="True" IsEnabled="False">Disabled Default</Button>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button ui:Grouping.Position="First" Margin="1 2">Normal</Button>
+                                <Button ui:Grouping.Position="Middle" Margin="1 2" IsEnabled="False">Disabled</Button>
+                                <Button ui:Grouping.Position="Middle" Margin="1 2" IsDefault="True">Default</Button>
+                                <Button ui:Grouping.Position="Last" Margin="1 2" IsDefault="True" IsEnabled="False">Disabled Default</Button>
+                            </StackPanel>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Button ui:Grouping.Position="First" Margin="1 2">Normal</Button>
-                            <Button ui:Grouping.Position="Middle" Margin="1 2" IsEnabled="False">Disabled</Button>
-                            <Button ui:Grouping.Position="Middle" Margin="1 2" IsDefault="True">Default</Button>
-                            <Button ui:Grouping.Position="Last" Margin="1 2" IsDefault="True" IsEnabled="False">Disabled Default</Button>
+                    </TabItem>
+                    <TabItem Header="Checkbox">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox IsChecked="False">Unchecked</CheckBox>
+                                <CheckBox IsChecked="True">Checked</CheckBox>
+                                <CheckBox IsThreeState="True" IsChecked="{x:Null}">Intermediate</CheckBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox IsChecked="False" IsEnabled="False">Unchecked</CheckBox>
+                                <CheckBox IsChecked="True" IsEnabled="False">Checked</CheckBox>
+                                <CheckBox IsThreeState="True" IsChecked="{x:Null}" IsEnabled="False">Intermediate</CheckBox>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                </TabItem>
-                <TabItem Header="Checkbox">
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Top">
-                        <StackPanel Orientation="Horizontal">
-                            <CheckBox IsChecked="False">Unchecked</CheckBox>
-                            <CheckBox IsChecked="True">Checked</CheckBox>
-                            <CheckBox IsThreeState="True" IsChecked="{x:Null}">Intermediate</CheckBox>
+                    </TabItem>
+                    <TabItem Header="GroupBox">
+                        <StackPanel Orientation="Vertical">
+                            <GroupBox Header="Enabled">
+                                <TextBlock>Some content for sizing</TextBlock>
+                            </GroupBox>
+                            <GroupBox Header="Disabled" IsEnabled="False">
+                                <TextBlock>Some content for sizing</TextBlock>
+                            </GroupBox>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <CheckBox IsChecked="False" IsEnabled="False">Unchecked</CheckBox>
-                            <CheckBox IsChecked="True" IsEnabled="False">Checked</CheckBox>
-                            <CheckBox IsThreeState="True" IsChecked="{x:Null}" IsEnabled="False">Intermediate</CheckBox>
-                        </StackPanel>
-                    </StackPanel>
-                </TabItem>
-                <TabItem Header="GroupBox">
-                    <StackPanel Orientation="Vertical">
-                        <GroupBox Header="Enabled">
-                            <TextBlock>Some content for sizing</TextBlock>
-                        </GroupBox>
-                        <GroupBox Header="Disabled" IsEnabled="False">
-                            <TextBlock>Some content for sizing</TextBlock>
-                        </GroupBox>
-                    </StackPanel>
-                </TabItem>
-                <TabItem Header="ComboBox">
-                    <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal">
-                            <ComboBox>
-                                <ComboBoxItem IsSelected="True">Item 1</ComboBoxItem>
-                                <ComboBoxItem>Item 2</ComboBoxItem>
-                                <ComboBoxItem>Item 3</ComboBoxItem>
-                                <ComboBoxItem IsEnabled="False">Disabled Item</ComboBoxItem>
-                            </ComboBox>
+                    </TabItem>
+                    <TabItem Header="ComboBox">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <ComboBox>
+                                    <ComboBoxItem IsSelected="True">Item 1</ComboBoxItem>
+                                    <ComboBoxItem>Item 2</ComboBoxItem>
+                                    <ComboBoxItem>Item 3</ComboBoxItem>
+                                    <ComboBoxItem IsEnabled="False">Disabled Item</ComboBoxItem>
+                                </ComboBox>
 
-                            <ComboBox IsEnabled="False">
-                                <ComboBoxItem IsSelected="True">Item 1</ComboBoxItem>
-                            </ComboBox>
+                                <ComboBox IsEnabled="False">
+                                    <ComboBoxItem IsSelected="True">Item 1</ComboBoxItem>
+                                </ComboBox>
 
-                            <ComboBox IsEditable="True">
-                                <ComboBoxItem IsSelected="True">Item 1</ComboBoxItem>
-                                <ComboBoxItem>Item 2</ComboBoxItem>
-                                <ComboBoxItem>Item 3</ComboBoxItem>
-                                <ComboBoxItem IsEnabled="False">Disabled Item</ComboBoxItem>
-                            </ComboBox>
+                                <ComboBox IsEditable="True">
+                                    <ComboBoxItem IsSelected="True">Item 1</ComboBoxItem>
+                                    <ComboBoxItem>Item 2</ComboBoxItem>
+                                    <ComboBoxItem>Item 3</ComboBoxItem>
+                                    <ComboBoxItem IsEnabled="False">Disabled Item</ComboBoxItem>
+                                </ComboBox>
 
-                            <ComboBox IsEnabled="False" IsEditable="True">
-                                <ComboBoxItem IsSelected="True">Item 1</ComboBoxItem>
-                            </ComboBox>
+                                <ComboBox IsEnabled="False" IsEditable="True">
+                                    <ComboBoxItem IsSelected="True">Item 1</ComboBoxItem>
+                                </ComboBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <ComboBox ui:Grouping.Position="First" Margin="1 2">
+                                    <ComboBoxItem>First</ComboBoxItem>
+                                </ComboBox>
+                                <ComboBox ui:Grouping.Position="Middle" Margin="1 2">
+                                    <ComboBoxItem>Middle</ComboBoxItem>
+                                </ComboBox>
+                                <ComboBox ui:Grouping.Position="Last" Margin="1 2">
+                                    <ComboBoxItem>Last</ComboBoxItem>
+                                </ComboBox>
+                            </StackPanel>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <ComboBox ui:Grouping.Position="First" Margin="1 2">
-                                <ComboBoxItem>First</ComboBoxItem>
-                            </ComboBox>
-                            <ComboBox ui:Grouping.Position="Middle" Margin="1 2">
-                                <ComboBoxItem>Middle</ComboBoxItem>
-                            </ComboBox>
-                            <ComboBox ui:Grouping.Position="Last" Margin="1 2">
-                                <ComboBoxItem>Last</ComboBoxItem>
-                            </ComboBox>
-                        </StackPanel>
-                    </StackPanel>
-                </TabItem>
-                <TabItem Header="TextBox">
-                    <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBox>Regular</TextBox>
-                            <TextBox IsEnabled="False">Disabled</TextBox>
-                            <TextBox IsReadOnly="True">ReadOnly</TextBox>
-                            <TextBox IsReadOnly="True" IsEnabled="True">ReadOnly and Disabled</TextBox>
-                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="TextBox">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox>Regular</TextBox>
+                                <TextBox IsEnabled="False">Disabled</TextBox>
+                                <TextBox IsReadOnly="True">ReadOnly</TextBox>
+                                <TextBox IsReadOnly="True" IsEnabled="True">ReadOnly and Disabled</TextBox>
+                            </StackPanel>
 
-                        <StackPanel Orientation="Horizontal">
-                            <TextBox ui:Grouping.Position="First" Margin="1 2">First</TextBox>
-                            <TextBox ui:Grouping.Position="Middle" Margin="1 2">Middle</TextBox>
-                            <TextBox ui:Grouping.Position="Last" Margin="1 2">Last</TextBox>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox ui:Grouping.Position="First" Margin="1 2">First</TextBox>
+                                <TextBox ui:Grouping.Position="Middle" Margin="1 2">Middle</TextBox>
+                                <TextBox ui:Grouping.Position="Last" Margin="1 2">Last</TextBox>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                </TabItem>
-                <TabItem Header="ListBox">
-                    <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal">
-                            <ListBox>
-                                <ListBoxItem>Item 1</ListBoxItem>
-                                <ListBoxItem IsSelected="True">Item 2</ListBoxItem>
-                                <ListBoxItem>Item 3</ListBoxItem>
-                                <ListBoxItem IsEnabled="False">Disabled Item</ListBoxItem>
-                            </ListBox>
-                            <ListBox IsEnabled="False">
-                                <ListBoxItem>Item 1</ListBoxItem>
-                                <ListBoxItem IsSelected="True">Item 2</ListBoxItem>
-                                <ListBoxItem>Item 3</ListBoxItem>
-                                <ListBoxItem IsEnabled="False">Disabled Item</ListBoxItem>
-                            </ListBox>
+                    </TabItem>
+                    <TabItem Header="ListBox">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <ListBox>
+                                    <ListBoxItem>Item 1</ListBoxItem>
+                                    <ListBoxItem IsSelected="True">Item 2</ListBoxItem>
+                                    <ListBoxItem>Item 3</ListBoxItem>
+                                    <ListBoxItem IsEnabled="False">Disabled Item</ListBoxItem>
+                                </ListBox>
+                                <ListBox IsEnabled="False">
+                                    <ListBoxItem>Item 1</ListBoxItem>
+                                    <ListBoxItem IsSelected="True">Item 2</ListBoxItem>
+                                    <ListBoxItem>Item 3</ListBoxItem>
+                                    <ListBoxItem IsEnabled="False">Disabled Item</ListBoxItem>
+                                </ListBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <ListBox ui:Grouping.Position="First" Margin="1 2">
+                                    <ListBoxItem>Item 1</ListBoxItem>
+                                    <ListBoxItem>Item 2</ListBoxItem>
+                                </ListBox>
+                                <ListBox ui:Grouping.Position="Middle" Margin="1 2">
+                                    <ListBoxItem>Item 1</ListBoxItem>
+                                    <ListBoxItem>Item 2</ListBoxItem>
+                                </ListBox>
+                                <ListBox ui:Grouping.Position="Last" Margin="1 2">
+                                    <ListBoxItem>Item 1</ListBoxItem>
+                                    <ListBoxItem>Item 2</ListBoxItem>
+                                </ListBox>
+                            </StackPanel>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <ListBox ui:Grouping.Position="First" Margin="1 2">
-                                <ListBoxItem>Item 1</ListBoxItem>
-                                <ListBoxItem>Item 2</ListBoxItem>
-                            </ListBox>
-                            <ListBox ui:Grouping.Position="Middle" Margin="1 2">
-                                <ListBoxItem>Item 1</ListBoxItem>
-                                <ListBoxItem>Item 2</ListBoxItem>
-                            </ListBox>
-                            <ListBox ui:Grouping.Position="Last" Margin="1 2">
-                                <ListBoxItem>Item 1</ListBoxItem>
-                                <ListBoxItem>Item 2</ListBoxItem>
-                            </ListBox>
-                        </StackPanel>
-                    </StackPanel>
-                </TabItem>
-            </TabControl>
+                    </TabItem>
+                </TabControl>
 
-            <TabControl>
-                <TabItem Header="Disabled Open" IsEnabled="False" />
-                <TabItem Header="Disabled Closed" IsEnabled="False" />
-            </TabControl>
-        </StackPanel>
-    </ScrollViewer>
+                <TabControl>
+                    <TabItem Header="Disabled Open" IsEnabled="False" />
+                    <TabItem Header="Disabled Closed" IsEnabled="False" />
+                </TabControl>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
 </Window>

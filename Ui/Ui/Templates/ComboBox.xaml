@@ -12,8 +12,8 @@
             <Border Grid.Column="0"
                     x:Name="Border"
                     Grid.ColumnSpan="2"
-                    BorderBrush="{DynamicResource EnabledForeground}"
-                    Background="{DynamicResource EnabledForeground}"
+                    BorderBrush="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Foreground}}"
+                    Background="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Foreground}}"
                     BorderThickness="1">
                 <Border.Resources>
                     <CornerRadius x:Key="CornerRadius">2</CornerRadius>
@@ -32,7 +32,7 @@
             </Border>
             <Border Grid.Column="0"
                     x:Name="UnknownBorder"
-                    Background="{DynamicResource EnabledBackground}"
+                    Background="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Background}}"
                     ui:Grouping.Position="First"
                     Margin="1">
                 <Border.CornerRadius>
@@ -50,7 +50,7 @@
             <Border Grid.Column="0"
                     x:Name="HighlightBorder"
                     CornerRadius="2,0,0,2"
-                    Background="{DynamicResource HighlightOverlayColor}"
+                    Background="{DynamicResource {x:Static ui:ResourceKeys+Highlight.Overlay}}"
                     Visibility="Hidden"
                     Margin="1">
             </Border>
@@ -58,21 +58,21 @@
                   Grid.Column="1"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center"
-                  Fill="{DynamicResource EnabledBackground}"
+                  Fill="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Background}}"
                   Data="M 0 0 L 4 4 L 8 0 Z" />
         </Grid>
 
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter TargetName="HighlightBorder" Property="Background"
-                        Value="{DynamicResource HighlightOverlayColor}" />
+                        Value="{DynamicResource {x:Static ui:ResourceKeys+Highlight.Overlay}}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource DisabledForeground}" />
+                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Foreground}}" />
                 <Setter TargetName="Border" Property="TextBlock.Foreground"
-                        Value="{DynamicResource DisabledBackground}" />
-                <Setter TargetName="Border" Property="Background" Value="{DynamicResource DisabledForeground}" />
-                <Setter TargetName="UnknownBorder" Property="Background" Value="{DynamicResource DisabledBackground}" />
+                        Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Background}}" />
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Foreground}}" />
+                <Setter TargetName="UnknownBorder" Property="Background" Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Background}}" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -113,12 +113,12 @@
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_EditableTextBox"
                                                                        Storyboard.TargetProperty="(TextElement.Foreground)">
                                             <DiscreteObjectKeyFrame KeyTime="0"
-                                                                    Value="{DynamicResource DisabledForeground}" />
+                                                                    Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Foreground}}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentSite"
                                                                        Storyboard.TargetProperty="(TextBlock.Foreground)">
                                             <DiscreteObjectKeyFrame KeyTime="0"
-                                                                    Value="{DynamicResource DisabledForeground}" />
+                                                                    Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Foreground}}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -180,8 +180,8 @@
                                   MinWidth="{TemplateBinding ActualWidth}"
                                   MaxHeight="{TemplateBinding MaxDropDownHeight}">
                                 <Border x:Name="DropDownBorder"
-                                        BorderBrush="{DynamicResource EnabledForeground}"
-                                        Background="{DynamicResource EnabledBackground}"
+                                        BorderBrush="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Foreground}}"
+                                        Background="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Background}}"
                                         BorderThickness="1" />
                                 <ScrollViewer Margin="1 6" SnapsToDevicePixels="True">
                                     <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
@@ -232,8 +232,8 @@
                                 <Condition Property="IsSelected" Value="True" />
                             </MultiTrigger.Conditions>
                             
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource EnabledForeground}" />
-                            <Setter TargetName="Content" Property="TextBlock.Foreground" Value="{DynamicResource EnabledBackground}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Foreground}}" />
+                            <Setter TargetName="Content" Property="TextBlock.Foreground" Value="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Background}}" />
                         </MultiTrigger>
 
                         <MultiTrigger>
@@ -242,8 +242,8 @@
                                 <Condition Property="IsSelected" Value="True" />
                             </MultiTrigger.Conditions>
                             
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource DisabledForeground}" />
-                            <Setter TargetName="Content" Property="TextBlock.Foreground" Value="{DynamicResource DisabledBackground}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Foreground}}" />
+                            <Setter TargetName="Content" Property="TextBlock.Foreground" Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Background}}" />
                         </MultiTrigger>
                         
                         <MultiTrigger>
@@ -252,7 +252,7 @@
                                 <Condition Property="IsSelected" Value="False" />
                             </MultiTrigger.Conditions>
                         
-                            <Setter TargetName="Content" Property="TextBlock.Foreground" Value="{DynamicResource DisabledForeground}" />
+                            <Setter TargetName="Content" Property="TextBlock.Foreground" Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Foreground}}" />
                         </MultiTrigger>
 
                     </ControlTemplate.Triggers>

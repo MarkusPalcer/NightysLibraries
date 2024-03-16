@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ui="clr-namespace:Ui">
     <Style TargetType="GroupBox">
         <Setter Property="Template">
             <Setter.Value>
@@ -12,11 +13,11 @@
                         <Border Grid.Row="0"
                                 x:Name="HeaderBorder"
                                 BorderThickness="1"
-                                BorderBrush="{DynamicResource EnabledForeground}"
-                                Background="{DynamicResource EnabledForeground}"
+                                BorderBrush="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Foreground}}"
+                                Background="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Foreground}}"
                                 CornerRadius="2,2,0,0">
                             <ContentPresenter Margin="4"
-                                              TextBlock.Foreground="{DynamicResource EnabledBackground}"
+                                              TextBlock.Foreground="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Background}}"
                                               TextBlock.FontWeight="Bold"
                                               ContentSource="Header"
                                               RecognizesAccessKey="True" />
@@ -25,7 +26,7 @@
                         <Border Grid.Row="1"
                                 x:Name="ContentBorder"
                                 BorderThickness="1,0,1,1"
-                                BorderBrush="{DynamicResource EnabledForeground}"
+                                BorderBrush="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Foreground}}"
                                 Background="{TemplateBinding Background}"
                                 CornerRadius="0,0,2,2">
                             <ContentPresenter Margin="4" />
@@ -33,10 +34,10 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="HeaderBorder" Property="Background" Value="{DynamicResource DisabledForeground}" />
-                            <Setter TargetName="HeaderBorder" Property="BorderBrush" Value="{DynamicResource DisabledForeground}" />
-                            <Setter TargetName="HeaderBorder" Property="TextBlock.Foreground" Value="{DynamicResource DisabledBackground}" />
-                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource DisabledForeground}" />
+                            <Setter TargetName="HeaderBorder" Property="Background" Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Foreground}}" />
+                            <Setter TargetName="HeaderBorder" Property="BorderBrush" Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Foreground}}" />
+                            <Setter TargetName="HeaderBorder" Property="TextBlock.Foreground" Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Background}}" />
+                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource {x:Static ui:ResourceKeys+Disabled.Foreground}}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
