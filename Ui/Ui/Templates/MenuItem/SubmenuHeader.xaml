@@ -5,7 +5,7 @@
         x:Key="{ComponentResourceKey ResourceId=SubmenuHeaderTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}"
         TargetType="{x:Type MenuItem}">
         <Border x:Name="templateRoot"
-                Background="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Background}}"
+                Background="Transparent"
                 TextElement.Foreground="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Foreground}}"
                 BorderThickness="0"
                 Height="22" 

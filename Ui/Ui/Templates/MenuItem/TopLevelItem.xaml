@@ -6,8 +6,8 @@
         TargetType="{x:Type MenuItem}">
         
         <Border x:Name="templateRoot"
-                Background="{TemplateBinding Background}"
-                TextElement.Foreground="{TemplateBinding Foreground}"
+                Background="Transparent"
+                TextElement.Foreground="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Foreground}}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
                 SnapsToDevicePixels="true">

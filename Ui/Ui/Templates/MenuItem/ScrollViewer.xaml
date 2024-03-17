@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <MenuScrollingVisibilityConverter x:Key="MenuScrollingVisibilityConverter" />
-    
+
     <Geometry x:Key="DownArrow">M 0,0 L 3.5,4 L 7,0 Z</Geometry>
     <Geometry x:Key="UpArrow">M 0,4 L 3.5,0 L 7,4 Z</Geometry>
 
@@ -44,7 +44,8 @@
                             <ScrollContentPresenter CanContentScroll="{TemplateBinding CanContentScroll}"
                                                     Margin="{TemplateBinding Padding}" />
                         </Border>
-                        <RepeatButton Command="{x:Static ScrollBar.LineUpCommand}"
+                        <RepeatButton x:Name="LineUpButton"
+                                      Command="{x:Static ScrollBar.LineUpCommand}"
                                       CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
                                       Grid.Column="0" Focusable="false" Grid.Row="0"
                                       Style="{StaticResource MenuScrollButton}">
@@ -59,9 +60,10 @@
                                     <Binding Path="ViewportHeight" RelativeSource="{RelativeSource TemplatedParent}" />
                                 </MultiBinding>
                             </RepeatButton.Visibility>
-                            <Path Data="{StaticResource UpArrow}" Fill="{Binding (TextBlock.Foreground)}" />
+                            <Path Data="{StaticResource UpArrow}" Fill="{Binding ElementName=LineUpButton, Path=Foreground}" />
                         </RepeatButton>
-                        <RepeatButton Command="{x:Static ScrollBar.LineDownCommand}"
+                        <RepeatButton x:Name="LineDownButton" 
+                            Command="{x:Static ScrollBar.LineDownCommand}"
                                       CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
                                       Grid.Column="0" Focusable="false" Grid.Row="2"
                                       Style="{StaticResource MenuScrollButton}">
@@ -76,7 +78,7 @@
                                     <Binding Path="ViewportHeight" RelativeSource="{RelativeSource TemplatedParent}" />
                                 </MultiBinding>
                             </RepeatButton.Visibility>
-                            <Path Data="{StaticResource DownArrow}" Fill="{Binding (TextBlock.Foreground)}" />
+                            <Path Data="{StaticResource DownArrow}" Fill="{Binding ElementName=LineDownButton, Path=Foreground}" />
                         </RepeatButton>
                     </Grid>
                 </ControlTemplate>

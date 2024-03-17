@@ -5,8 +5,8 @@
         x:Key="{ComponentResourceKey ResourceId=TopLevelHeaderTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}"
         TargetType="{x:Type MenuItem}">
         <Border x:Name="templateRoot"
-                Background="{TemplateBinding Background}"
-                TextElement.Foreground="{TemplateBinding Foreground}"
+                Background="Transparent"
+                TextElement.Foreground="{DynamicResource {x:Static ui:ResourceKeys+Enabled.Foreground}}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
                 CornerRadius="5 5 0 0"
